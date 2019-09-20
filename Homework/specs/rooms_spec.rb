@@ -12,12 +12,12 @@ class RoomTest < MiniTest::Test
     @song2 = Song.new("Billy Idol", "White wedding")
 
 
-    @kyoto_room = Room.new("Kyoto Room", [@song1, @song2], [@customer1], 10)
+    @kyoto_room = Room.new("Kyoto Room", [@song1, @song2], [@guest1], 10)
     @tokyo_room = Room.new("Tokyo Room", [], [], 10)
-    @osaka_room = Room.new("Osaka Room", [@song1, @song2], [@customer1, @customer2], 2)
+    @osaka_room = Room.new("Osaka Room", [@song1, @song2], [@guest1, @guest2], 2)
 
-    @customer1 = Guest.new("Lewis", 50.00, [@song1])
-    @customer2 = Guest.new("Ryan", 50.00, [@song2, @song1])
+    @guest1 = Guest.new("Lewis", 50.00, [@song1])
+    @guest2 = Guest.new("Ryan", 50.00, [@song2, @song1])
   end
 
   def test_room_has_name
