@@ -9,4 +9,13 @@ class Room
     @capacity = capacity
   end
 
+  def get_length
+    return @guests.size
+  end
+
+
+  def add_guest(guest)
+    @guests.push(guest)
+  end
+
 end

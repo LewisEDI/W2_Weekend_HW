@@ -1,7 +1,7 @@
 require("minitest/autorun")
 require('minitest/rg')
-require_relative("../room")
-require_relative("../guest")xs
+require_relative("../rooms")
+require_relative("../guests")
 require_relative("../songs")
 require('pry-byebug')
 
