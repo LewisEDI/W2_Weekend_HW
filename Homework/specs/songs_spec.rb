@@ -1,11 +1,11 @@
 require("minitest/autorun")
 require('minitest/rg')
-require_relative("../room")
-require_relative("../guest")
+require_relative("../rooms")
+require_relative("../guests")
 require_relative("../songs")
 require('pry-byebug')
 
-class GuestTest < MiniTest::Test
+class SongTest < MiniTest::Test
 
   def setup
     @song1 = Song.new("Scorpians", "Wind of change")
@@ -25,7 +25,7 @@ class GuestTest < MiniTest::Test
   end
 
   def test_song_has_title
-    assert_equal("Lewis", @song1.title())
+    assert_equal("Wind of change", @song1.title())
   end
 
 
