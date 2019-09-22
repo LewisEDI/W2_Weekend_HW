@@ -2,7 +2,7 @@ class Room
 
   attr_accessor :name, :playlist, :guests, :capacity
 
-  def initialize(name, playlist, capacity)
+  def initialize(name, playlist, guests, capacity)
     @name = name
     @playlist = playlist
     @guests = []
@@ -17,15 +17,30 @@ class Room
     @guests.push(guest)
   end
 
+
   def remove_guest(guest)
-      add_guest(@guest1)
-      add_guest(@guest2)
-      p @guests.name
-      @guests.find{ |guest| @name == name}
-      @guests.delete(guest) if guest == guest[:name]
-    end
+    @guests.delete(guest)
+
+  end
+  # hallway = []
+  # add_guest(@guest1)
+  # add_guest(@guest2)
+  # # @guests.delete(guest)
+  #
+  #
+  # for guest in @queue hallway.push(guest)
+  #   if guest == guest
+  #   end
+  #   p hallway
+  #
+  #   @queue.clear()
+  #   return @queue
+  #
+  #   # @guests.pop
+  #   # p @guests
+  # end
 
   # def remove_guest(guest)
   #   @guests.find |guest| guest.name == name
   #   return guest.delete
-  end
+end

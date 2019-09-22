@@ -12,22 +12,28 @@ class RoomTest < MiniTest::Test
     @song2 = Song.new("Billy Idol", "White wedding")
 
 
-    @kyoto_room = Room.new("Kyoto Room", [@song1, @song2], 10)
-    @tokyo_room = Room.new("Tokyo Room", [], 10)
-    @osaka_room = Room.new("Osaka Room", [@song1, @song2], 2)
+    @kyoto_room = Room.new("Kyoto Room", [@song1, @song2], [], 10)
+    @tokyo_room = Room.new("Tokyo Room", [], [], 10)
+    @osaka_room = Room.new("Osaka Room", [@song1, @song2], [], 2)
 
     @guest1 = Guest.new("Lewis", 50.00, [@song1])
     @guest2 = Guest.new("Ryan", 50.00, [@song2, @song1])
 
-    @guests = [@guest1, @guest2]
+    # @guests = [@guest1, @guest2]
   end
 
-  # def test_room_has_name
-  #   assert_equal("Kyoto Room", @kyoto_room.name())
-  # end
+  def test_room_has_name
+
+    assert_equal("Kyoto Room", @kyoto_room.name())
+  end
+
+  def test_room_is_occupied2
+    @kyoto_room.add_guest(@guest1)
+    assert_equal(1, @kyoto_room.get_length())
+  end
   #
   # def test_room_has_songs
-  #   assert(@kyoto_room.playlist() >= 1)
+  #   assert(@kyoto_room.playlist(1))
   # end
   #
   # def test_room_is_occupied
@@ -43,8 +49,8 @@ class RoomTest < MiniTest::Test
   # end
 
   def test_can_add_guest_to_room()
-      @tokyo_room.add_guest(@guest1)
-      assert_equal(1, @tokyo_room.get_length())
+    @tokyo_room.add_guest(@guest1)
+    assert_equal(1, @tokyo_room.get_length())
   end
 
   # def test_room_is_full
@@ -61,8 +67,10 @@ class RoomTest < MiniTest::Test
   #     assert_equal(2, @river.number_of_fishes)
   #   end
   def test_can_remove_guest_from_room
-      @osaka_room.remove_guest(@guest2)
-      assert_equal(1, @osaka_room.get_length())
+    @osaka_room.add_guest(@guest1)
+    @osaka_room.add_guest(@guest2)
+    @osaka_room.remove_guest(@guest2)
+    assert_equal(1, @osaka_room.get_length())
   end
 
 
