@@ -9,7 +9,7 @@ class Room
     @capacity = capacity
   end
 
-  def get_length
+  def check_room
     return @guests.size
   end
 

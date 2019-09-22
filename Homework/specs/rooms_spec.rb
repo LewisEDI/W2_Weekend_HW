@@ -29,7 +29,7 @@ class RoomTest < MiniTest::Test
 
   def test_room_is_occupied2
     @kyoto_room.add_guest(@guest1)
-    assert_equal(1, @kyoto_room.get_length())
+    assert_equal(1, @kyoto_room.check_room())
   end
   #
   # def test_room_has_songs
@@ -50,7 +50,7 @@ class RoomTest < MiniTest::Test
 
   def test_can_add_guest_to_room()
     @tokyo_room.add_guest(@guest1)
-    assert_equal(1, @tokyo_room.get_length())
+    assert_equal(1, @tokyo_room.check_room())
   end
 
   # def test_room_is_full
@@ -70,7 +70,7 @@ class RoomTest < MiniTest::Test
     @osaka_room.add_guest(@guest1)
     @osaka_room.add_guest(@guest2)
     @osaka_room.remove_guest(@guest2)
-    assert_equal(1, @osaka_room.get_length())
+    assert_equal(1, @osaka_room.check_room())
   end
 
 
