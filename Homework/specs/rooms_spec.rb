@@ -53,7 +53,15 @@ class RoomTest < MiniTest::Test
     assert_equal(1, @tokyo_room.check_room())
   end
 
-  # def test_room_is_full
+  def test_can_add_song_to_room()
+    @tokyo_room.add_song(@song1)
+    assert_equal(1, @tokyo_room.check_playlist())
+  end
+
+  # def test_room_is_full()
+  #   @osaka_room.add_guest(@guest1)
+  #   @osaka_room.add_guest(@guest2)
+  #   @osaka_room.check_room_has_space
   #   assert_equal("room is full!", @kyoto_room.guests())
   # end
 
@@ -66,7 +74,7 @@ class RoomTest < MiniTest::Test
   #     assert_equal(1, @bear.food_count)
   #     assert_equal(2, @river.number_of_fishes)
   #   end
-  def test_can_remove_guest_from_room
+  def test_can_remove_guest_from_room()
     @osaka_room.add_guest(@guest1)
     @osaka_room.add_guest(@guest2)
     @osaka_room.remove_guest(@guest2)

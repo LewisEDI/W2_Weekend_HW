@@ -13,8 +13,23 @@ class Room
     return @guests.size
   end
 
+  def check_playlist
+    return @playlist.size
+  end
+
+  # def check_room_has_space
+  #   return "room is full!" if @guests.size == @capacity
+  #
+  #
+  # return "room has space"
+  # end
+
   def add_guest(guest)
     @guests.push(guest)
+  end
+
+  def add_song(song)
+    @playlist.push(song)
   end
 
 
@@ -22,7 +37,7 @@ class Room
     hallway = []
     hallway.push(guest)
     @guests.delete(guest)
-    p hallway
+  
 
 
   end
