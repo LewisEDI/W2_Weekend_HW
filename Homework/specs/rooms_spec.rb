@@ -44,6 +44,13 @@ class RoomTest < MiniTest::Test
     assert_equal("go sing in the street", expected)
   end
 
+  def test_check_room_for_guest
+    @kyoto_room.add_guest(@guest1)
+    @kyoto_room.room_check(@guest1)
+    result = @kyoto_room.room_check(@guest1)
+    assert_equal(true, result)
+  end
+
   def test_can_add_song_to_room()
     @tokyo_room.add_song(@song1)
     assert_equal(1, @tokyo_room.check_playlist())
