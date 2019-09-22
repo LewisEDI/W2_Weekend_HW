@@ -29,21 +29,18 @@ class Room
   def add_guest(guest)
     holding_area = []
     if guest.wallet >= @price
-    holding_area.push(guest)
-  else
-    return "beat it"
-  end
+      holding_area.push(guest)
+    else
+      return "go sing in the street"
+    end
     if holding_area.count <= @capacity
-    @guests.push(guest)
-    holding_area.clear
-  else
-    return "no room! try another room or hit the bar"
+      @guests.push(guest)
+      holding_area.clear
+    else
+      p @guests
+      return "not enough room! try another room or hit the bar"
+    end
   end
-end
-
-  # def add_guest(guest)
-  #   @guests.push(guest)
-  # end
 
   def add_song(song)
     @playlist.push(song)
