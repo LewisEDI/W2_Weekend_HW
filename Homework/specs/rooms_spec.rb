@@ -18,6 +18,8 @@ class RoomTest < MiniTest::Test
 
     @guest1 = Guest.new("Lewis", 50.00, [@song1])
     @guest2 = Guest.new("Ryan", 50.00, [@song2, @song1])
+    @guest3 = Guest.new("Sketcher", 0.00, [])
+
 
   end
 
@@ -50,6 +52,11 @@ class RoomTest < MiniTest::Test
   def test_can_add_guest_to_room()
     @tokyo_room.add_guest(@guest1)
     assert_equal(1, @tokyo_room.check_room())
+  end
+
+  def test_no_cash()
+    @tokyo_room.add_guest(@guest3)
+    assert_equal(0, @tokyo_room.check_room())
   end
 
   def test_can_add_song_to_room()

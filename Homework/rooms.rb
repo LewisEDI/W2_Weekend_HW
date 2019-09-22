@@ -7,6 +7,7 @@ class Room
     @playlist = playlist
     @guests = []
     @capacity = capacity
+    @price = 5
   end
 
   def check_room
@@ -25,14 +26,18 @@ class Room
     end
   end
 
-  def add_guest(guests)
+  def add_guest(guest)
     holding_area = []
-    holding_area.push(guests)
+    if guest.wallet >= @price
+    holding_area.push(guest)
+  else
+    return "beat it"
+  end
     if holding_area.count <= @capacity
-    @guests.push(guests)
+    @guests.push(guest)
     holding_area.clear
   else
-    return "no room! try another or hit the bar"
+    return "no room! try another room or hit the bar"
   end
 end
 
@@ -40,9 +45,9 @@ end
   #   @guests.push(guest)
   # end
 
-  # def add_song(song)
-  #   @playlist.push(song)
-  # end
+  def add_song(song)
+    @playlist.push(song)
+  end
 
 
   def remove_guest(guest)
