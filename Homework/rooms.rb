@@ -19,7 +19,11 @@ class Room
 
 
   def remove_guest(guest)
+    hallway = []
+    hallway.push(guest)
     @guests.delete(guest)
+    p hallway
+
 
   end
   # hallway = []
