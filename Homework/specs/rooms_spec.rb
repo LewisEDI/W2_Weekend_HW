@@ -19,7 +19,6 @@ class RoomTest < MiniTest::Test
     @guest1 = Guest.new("Lewis", 50.00, [@song1])
     @guest2 = Guest.new("Ryan", 50.00, [@song2, @song1])
 
-    # @guests = [@guest1, @guest2]
   end
 
   def test_room_has_name
@@ -58,12 +57,12 @@ class RoomTest < MiniTest::Test
     assert_equal(1, @tokyo_room.check_playlist())
   end
 
-  # def test_room_is_full()
-  #   @osaka_room.add_guest(@guest1)
-  #   @osaka_room.add_guest(@guest2)
-  #   @osaka_room.check_room_has_space
-  #   assert_equal("room is full!", @kyoto_room.guests())
-  # end
+  def test_room_is_full()
+    @osaka_room.add_guest(@guest1)
+    @osaka_room.add_guest(@guest2)
+    @osaka_room.check_room_has_space
+    assert_equal("room is full!", @osaka_room.check_room_has_space())
+  end
 
   # def test_cant_add_to_full_room
   #   asset_equal("room is full!", @osaka_room.capacity_check())
