@@ -24,14 +24,25 @@ class Room
       return "room has space"
     end
   end
-  
-  def add_guest(guest)
-    @guests.push(guest)
-  end
 
-  def add_song(song)
-    @playlist.push(song)
+  def add_guest(guests)
+    holding_area = []
+    holding_area.push(guests)
+    if holding_area.count <= @capacity
+    @guests.push(guests)
+    holding_area.clear
+  else
+    return "no room! try another or hit the bar"
   end
+end
+
+  # def add_guest(guest)
+  #   @guests.push(guest)
+  # end
+
+  # def add_song(song)
+  #   @playlist.push(song)
+  # end
 
 
   def remove_guest(guest)
